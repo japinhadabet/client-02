@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="css/output.css" rel="stylesheet">
+    <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <title>Bulls - GPT</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">  </head>
+  <body>
+    <main class="bg-crash flex min-h-[calc(100dvh)] flex-col bg-top font-poppins">
+      <div class="flex flex-col items-center justify-center gap-3 p-[10px]">
+        <div class="animate-wiggle">
+          <img class="mt-[5px] w-[400px] max-w-[95%]" src="images/logofruitninja.png" alt="">
+        </div>
+        <div class="titulo animate-wiggle w-90 mt-0 w-[450px] max-w-[95%] rounded-[15px] bg-gradient-to-r from-[#E84029] to-[#ED739C] px-0 py-2 text-center text-[24px] font-extrabold text-white">
+          Esperando
+        </div>
+        <div class="flex flex-col">
+          <div class="jogadas">
+            <b class="text-white">Siga a quantidade de cortes:</b>
+          </div>
+          <div class="flex items-center justify-center">
+            🍬🍩
+            <span class="destaque text-[26px] font-bold text-[#22B14C]" id="cortes">0</span>
+            🧁🍫
+          </div>
+        </div>
+        <button id="btnCreate" class="animate-pulse_size my-[10px]font-bold max-[100%] w-[180px] rounded-[15px] bg-[#E84029] px-[15px] py-[10px] text-[16px] font-bold text-white disabled:opacity-[0.5]">
+          Gerar Cortes
+        </button>
+        <div class="chance">
+          <span class="perc text-white" id="porcentagem">00.00%</span>
+          <span class="text-white">de chance de</span>
+          <span class="destaque font-bold text-[#22B14C]">GANHO</span>
+        </div>
+        <iframe class="iframejogo mb-10 mt-[15px] h-[calc(100vh-100px)] w-[720px] max-w-[calc(100%-30px)] border-2 border-red-600 bg-gray-800 shadow-[0px_0px_10px_#E84029]" src="https://go.aff.bullsbetaffiliate.com/b7kvovsd"></iframe>
+      </div>
+    </main>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btnCreate").click(function () {
+          const btnCreate = $(this);
+
+          if (!btnCreate.hasClass("disabled")) {
+            btnCreate.addClass("disabled");
+            btnCreate.prop("disabled", true);
+
+            let count = 15;
+            btnCreate.html(`${count} SEGUNDOS`);
+
+            const timer = setInterval(function () {
+              count--;
+              btnCreate.html(`${count} SEGUNDOS`);
+              if (count === 0) {
+                clearInterval(timer);
+                btnCreate.html("Gerar Cortes");
+                btnCreate.removeClass("disabled");
+                btnCreate.prop("disabled", false);
+              }
+            }, 1000);
+          }
+        });
+      });
+    </script>
+    <script src="js/script.js"></script>
+  
+
+</body></html>
